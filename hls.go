@@ -72,7 +72,6 @@ func (s stream) addSegments(pl *m3u8.MediaPlaylist) []string {
 			if !inCache {
 				s.cache.Add(segURL, nil)
 				out = append(out, segURL)
-				log.Println(segURL)
 			}
 		}
 	}
