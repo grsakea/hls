@@ -13,6 +13,10 @@ import (
 	"github.com/grafov/m3u8"
 )
 
+type Downloader interface {
+	Download(playlistURL string, target string)
+}
+
 type stream struct {
 	out   io.WriteCloser
 	stURL string
