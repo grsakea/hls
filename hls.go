@@ -17,6 +17,9 @@ type Downloader interface {
 	Download(playlistURL string, target string)
 }
 
+type HLSDownloader struct {
+}
+
 type stream struct {
 	out   io.WriteCloser
 	stURL string
@@ -103,7 +106,7 @@ func (s stream) getURL() *url.URL {
 	return out
 }
 
-func Download(playlistURL string, target string) {
+func (HLSDownloader) Download(playlistURL string, target string) {
 	s, err := newStream(playlistURL, target)
 	if err != nil {
 		log.Fatal(err)
